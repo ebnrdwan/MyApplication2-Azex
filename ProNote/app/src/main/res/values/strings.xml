@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ProNote</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <array name="purity">
+        <item>normal</item>
+        <item>high</item>
+        <item>Medium</item>
+        <item>low</item>
+    </array>
+</resources>

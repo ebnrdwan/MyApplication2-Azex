@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.rehaab.myapplication.Window2">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Founded!!!"
+        android:textSize="50sp"
+        android:gravity="bottom"
+        android:layout_weight="1"
+        android:layout_marginLeft="80dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="best shop app"
+        android:textSize="25sp"
+        android:gravity="right"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Founded!!! helps you to keep your shop under control always ......"
+        android:textSize="35dp"
+        android:textStyle="normal"
+        android:textColor="#212121"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="let’s begen ..."
+        android:textSize="25sp"
+        android:layout_weight="0.5"
+        android:id="@+id/btn1"
+
+        />
+
+
+
+</LinearLayout>
