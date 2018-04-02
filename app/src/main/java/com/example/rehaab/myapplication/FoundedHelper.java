@@ -25,11 +25,11 @@ public class FoundedHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         // Create a table to hold Notelist data
-        final String SQL_CREATE_NOTELIST_TABLE = "CREATE TABLE " +  FoundedContract.foundedEntry.TABLE_NAME + " (" +
+        final String SQL_CREATE_NOTELIST_TABLE = "CREATE TABLE " +  FoundedContract.foundedEntry.TABLE_NAME + " ( " +
                 FoundedContract.foundedEntry ._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 FoundedContract.foundedEntry.COLUMN_KIND + " TEXT NOT NULL, " +
                 FoundedContract.foundedEntry.COLUMN_NUMBERNOW + " TEXT NOT NULL, " +
-                FoundedContract.foundedEntry.COLUMN_NUMBERLOW + " INTEGER NOT NULL " +
+                FoundedContract.foundedEntry.COLUMN_NUMBERLOW + " INTEGER NOT NULL, " +
                 FoundedContract.foundedEntry.NOMBER_PHONE+" TEXT NOT NULL " +
                 "); ";
         sqLiteDatabase.execSQL(SQL_CREATE_NOTELIST_TABLE);

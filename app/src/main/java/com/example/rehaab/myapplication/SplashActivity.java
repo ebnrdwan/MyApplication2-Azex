@@ -1,13 +1,14 @@
 package com.example.rehaab.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
 
     EditText ET1;
@@ -15,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     EditText ET3;
     EditText ET4;
     Button btn;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
 //        ET3 = (EditText) findViewById(R.id.ET3);
 //        ET4 = (EditText) findViewById(R.id.ET4);
 //        btn = (Button) findViewById(R.id.btn);
+        startActivity(new Intent(this,Window2.class));
 
-      jobScheduler.Schadualing(this);
+        MyJobScheduler.Schadualing(this);
     }
 
 //protected void onResume(){
@@ -40,15 +41,14 @@ public class MainActivity extends AppCompatActivity {
 //    Notification(this , str1 , str2);
 //}
 
-    public void Notification (Context context , String str1 , String str2 ) {
+    public void Notification(Context context, String str1, String str2) {
         try {
-            if (str1.equals(str2)
-                    && str2 != null) {
-//                Notification.Nutification(context);
+            if (str1.equals(str2) && str2 != null) {
+                Notification.Nutification(context,"notify body","notify title");
             }
         } catch (Exception e) {
 
-            Toast.makeText(context , "There is error", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "There is error", Toast.LENGTH_LONG).show();
 
         }
     }

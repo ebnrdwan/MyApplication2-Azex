@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.rehaab.myapplication.MainActivity">
+        <activity android:name="com.example.rehaab.myapplication.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,11 +23,8 @@
 
         // adding the action for firebase job dispatcher
         <service
-            android:name=".IS"
+            android:name=".TasksIntentService"
             android:exported="false">
-            <intent-filter>
-                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
-            </intent-filter>
         </service>
         <service
             android:name=".Reminderclass"

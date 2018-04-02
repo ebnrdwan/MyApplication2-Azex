@@ -15,8 +15,8 @@ import com.firebase.jobdispatcher.RetryStrategy;
 
 public class Reminderclass extends JobService {
 
-    public static void executeTask(IS is, String action) {
-    }
+
+
 
 
     private AsyncTask mBackgroundTask;

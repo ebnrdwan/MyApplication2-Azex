@@ -24,12 +24,11 @@ public class Window3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_window3);
         recyclerView = (RecyclerView) findViewById(R.id.recycle);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
         sqLiteDatabase = foundedHelper.getWritableDatabase();
+        addNote("kind","30","10","010");
         Cursor cursor = getAllNotes();
 
 
@@ -43,15 +42,14 @@ public class Window3 extends AppCompatActivity {
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 return false;
             }
-
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
 
-                long id = (long) viewHolder.itemView.getTag();
-
-                removeNote(id);
-
-                adapter.swapCursor(getAllNotes());
+//                long id = (long) viewHolder.itemView.getTag();
+//
+//                removeNote(id);
+//
+//                adapter.swapCursor(getAllNotes());
             }
 
         }).attachToRecyclerView(recyclerView);
@@ -71,7 +69,10 @@ public class Window3 extends AppCompatActivity {
 
     }
     public Cursor getAllNotes(){
-        return sqLiteDatabase.query(
+
+
+
+     Cursor  cursor= sqLiteDatabase.query(
                 FoundedContract.foundedEntry.TABLE_NAME,
                 null,
                 null,
@@ -80,6 +81,8 @@ public class Window3 extends AppCompatActivity {
                 null,
                 FoundedContract.foundedEntry._ID
         );
+     cursor.moveToFirst();
+        return cursor;
     }
 
 

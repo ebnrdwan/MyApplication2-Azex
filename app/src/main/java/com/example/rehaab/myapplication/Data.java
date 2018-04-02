@@ -36,12 +36,14 @@ public class Data extends RecyclerView.Adapter <Data.NumberViewHolder> {
     public void onBindViewHolder(NumberViewHolder holder, int position) {
         if (!cursor.moveToPosition(position))
             return;
+if (cursor!=null&& cursor.getCount()>0){
+    String kind = cursor.getString(cursor.getColumnIndex(FoundedContract.foundedEntry.COLUMN_KIND));
+    String numberNow = cursor.getString(cursor.getColumnIndex(FoundedContract.foundedEntry.COLUMN_KIND));
+    long id = cursor.getLong(cursor.getColumnIndex(FoundedContract.foundedEntry._ID));
+    holder.data.setText(kind);
+    holder.number.setText(numberNow);
+}
 
-        String kind = cursor.getString(cursor.getColumnIndex(FoundedContract.foundedEntry.COLUMN_KIND));
-        String numberNow = cursor.getString(cursor.getColumnIndex(FoundedContract.foundedEntry.COLUMN_NUMBERNOW));
-        long id = cursor.getLong(cursor.getColumnIndex(FoundedContract.foundedEntry._ID));
-        holder.data.setText(kind);
-        holder.number.setText(numberNow);
 
     }
 

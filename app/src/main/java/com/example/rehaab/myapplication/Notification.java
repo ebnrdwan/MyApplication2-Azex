@@ -23,7 +23,7 @@ public class Notification {
 
     private static PendingIntent contentIntent(Context context){
 
-        Intent myIntent = new Intent ( context , MainActivity.class ) ;
+        Intent myIntent = new Intent ( context , SplashActivity.class ) ;
 
 
         return PendingIntent.getService (context , ID , myIntent , PendingIntent.FLAG_UPDATE_CURRENT ) ;
