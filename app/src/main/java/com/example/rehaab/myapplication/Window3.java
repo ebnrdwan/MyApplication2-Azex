@@ -13,12 +13,10 @@ import android.view.View;
 import android.view.Window;
 
 public class Window3 extends AppCompatActivity {
-    RecyclerView recyclerView ;
-    Data adapter ;
-    SQLiteDatabase sqLiteDatabase ;
-    FoundedHelper foundedHelper =new FoundedHelper(Window3.this);
-
-
+    RecyclerView recyclerView;
+    Data adapter;
+    SQLiteDatabase sqLiteDatabase;
+    FoundedHelper foundedHelper = new FoundedHelper(Window3.this);
 
 
     @Override
@@ -28,7 +26,7 @@ public class Window3 extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycle);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         sqLiteDatabase = foundedHelper.getWritableDatabase();
-        addNote("kind","30","10","010");
+        addNote("kind", "30", "10", "010");
         Cursor cursor = getAllNotes();
 
 
@@ -42,6 +40,7 @@ public class Window3 extends AppCompatActivity {
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 return false;
             }
+
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
 
@@ -68,43 +67,47 @@ public class Window3 extends AppCompatActivity {
         startActivity(n);
 
     }
-    public Cursor getAllNotes(){
 
+    public Cursor getAllNotes() {
 
+        String[] projections = {FoundedContract.foundedEntry.COLUMN_KIND,
+                FoundedContract.foundedEntry.COLUMN_NUMBERLOW,
+                FoundedContract.foundedEntry.COLUMN_NUMBERNOW,
+                FoundedContract.foundedEntry.NOMBER_PHONE};
 
-     Cursor  cursor= sqLiteDatabase.query(
+        Cursor cursor = sqLiteDatabase.query(
                 FoundedContract.foundedEntry.TABLE_NAME,
-                null,
+                projections,
                 null,
                 null,
                 null,
                 null,
                 FoundedContract.foundedEntry._ID
         );
-     cursor.moveToFirst();
+        cursor.moveToFirst();
         return cursor;
     }
 
 
-    public long addNote(String kind,String numberNow ,String numberLow,String numberPhone){
+    public long addNote(String kind, String numberNow, String numberLow, String numberPhone) {
         ContentValues cv = new ContentValues();
-        cv.put(FoundedContract.foundedEntry.COLUMN_KIND,kind );
-        cv.put(FoundedContract.foundedEntry.COLUMN_NUMBERNOW,numberNow);
-        cv.put(FoundedContract.foundedEntry.COLUMN_NUMBERLOW,numberLow);
-        cv.put(FoundedContract.foundedEntry.NOMBER_PHONE,numberPhone);
-        return sqLiteDatabase.insert(FoundedContract.foundedEntry.TABLE_NAME,null, cv);
+        cv.put(FoundedContract.foundedEntry.COLUMN_KIND, kind);
+        cv.put(FoundedContract.foundedEntry.COLUMN_NUMBERNOW, numberNow);
+        cv.put(FoundedContract.foundedEntry.COLUMN_NUMBERLOW, numberLow);
+        cv.put(FoundedContract.foundedEntry.NOMBER_PHONE, numberPhone);
+        return sqLiteDatabase.insert(FoundedContract.foundedEntry.TABLE_NAME, null, cv);
 
 
     }
+
     private boolean removeNote(long id) {
-        return sqLiteDatabase.delete(FoundedContract.foundedEntry.TABLE_NAME,FoundedContract.foundedEntry ._ID + "=" + id, null) > 0;
+        return sqLiteDatabase.delete(FoundedContract.foundedEntry.TABLE_NAME, FoundedContract.foundedEntry._ID + "=" + id, null) > 0;
     }
+
     public void openAddNewNote() {
-        Intent intent = new Intent(Window3.this,Window.class);
+        Intent intent = new Intent(Window3.this, Window.class);
         startActivity(intent);
     }
-
-
 
 
 }

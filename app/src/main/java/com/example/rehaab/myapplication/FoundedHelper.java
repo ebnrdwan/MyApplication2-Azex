@@ -29,7 +29,7 @@ public class FoundedHelper extends SQLiteOpenHelper {
                 FoundedContract.foundedEntry ._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 FoundedContract.foundedEntry.COLUMN_KIND + " TEXT NOT NULL, " +
                 FoundedContract.foundedEntry.COLUMN_NUMBERNOW + " TEXT NOT NULL, " +
-                FoundedContract.foundedEntry.COLUMN_NUMBERLOW + " INTEGER NOT NULL, " +
+                FoundedContract.foundedEntry.COLUMN_NUMBERLOW + " TEXTNOT NULL, " +
                 FoundedContract.foundedEntry.NOMBER_PHONE+" TEXT NOT NULL " +
                 "); ";
         sqLiteDatabase.execSQL(SQL_CREATE_NOTELIST_TABLE);
@@ -41,7 +41,7 @@ public class FoundedHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + FoundedContract.foundedEntry.TABLE_NAME);
         onCreate(sqLiteDatabase);
     }
-    public long addNote(String kind,String numberNow,int numberLow,int numberPhone ){
+    public long addNote(String kind,String numberNow,String numberLow,String numberPhone ){
         ContentValues cv = new ContentValues();
         cv.put(FoundedContract.foundedEntry.COLUMN_KIND,kind );
         cv.put(FoundedContract.foundedEntry.COLUMN_NUMBERNOW,numberNow);

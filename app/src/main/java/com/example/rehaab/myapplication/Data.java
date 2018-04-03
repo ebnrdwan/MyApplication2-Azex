@@ -38,8 +38,7 @@ public class Data extends RecyclerView.Adapter <Data.NumberViewHolder> {
             return;
 if (cursor!=null&& cursor.getCount()>0){
     String kind = cursor.getString(cursor.getColumnIndex(FoundedContract.foundedEntry.COLUMN_KIND));
-    String numberNow = cursor.getString(cursor.getColumnIndex(FoundedContract.foundedEntry.COLUMN_NUMBERLOW));
-    long id = cursor.getLong(cursor.getColumnIndex(FoundedContract.foundedEntry._ID));
+    String numberNow = cursor.getString(cursor.getColumnIndex(FoundedContract.foundedEntry.COLUMN_NUMBERNOW));
     holder.data.setText(kind);
     holder.number.setText(numberNow);
 }
