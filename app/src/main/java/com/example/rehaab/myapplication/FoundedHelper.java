@@ -29,7 +29,7 @@ public class FoundedHelper extends SQLiteOpenHelper {
                 FoundedContract.foundedEntry ._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 FoundedContract.foundedEntry.COLUMN_KIND + " TEXT NOT NULL, " +
                 FoundedContract.foundedEntry.COLUMN_NUMBERNOW + " TEXT NOT NULL, " +
-                FoundedContract.foundedEntry.COLUMN_NUMBERLOW + " TEXTNOT NULL, " +
+                FoundedContract.foundedEntry.COLUMN_NUMBERLOW + " TEXT NOT NULL, " +
                 FoundedContract.foundedEntry.NOMBER_PHONE+" TEXT NOT NULL " +
                 "); ";
         sqLiteDatabase.execSQL(SQL_CREATE_NOTELIST_TABLE);
